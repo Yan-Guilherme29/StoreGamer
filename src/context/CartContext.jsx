@@ -1,39 +1,48 @@
-const products = [
-    {
-        id: 1,
-        nome: "Teclado Mecânico RGB",
-        preco: 299.90,
-        imagem: "/images/teclado.jpg",
-        descricao:
-            "Teclado mecânico RGB com switches de alta precisão."
-    },
+"use client";
 
-    {
-        id: 2,
-        nome: "Mouse Gamer RGB",
-        preco: 159.90,
-        imagem: "/images/mouse.jpg",
-        descricao:
-            "Mouse gamer com sensor óptico de alta performance."
-    },
+import { createContext, useContext, useState } from "react";
 
-    {
-        id: 3,
-        nome: "Headset Gamer",
-        preco: 249.90,
-        imagem: "/images/headset.jpg",
-        descricao:
-            "Headset gamer com áudio surround e microfone."
-    },
+const CartContext = createContext();
 
-    {
-        id: 4,
-        nome: "Monitor Gamer 24",
-        preco: 899.90,
-        imagem: "/images/monitor.jpg",
-        descricao:
-            "Monitor Full HD 144Hz para jogos competitivos."
+export function CartProvider({ children }) {
+
+    const [cart, setCart] = useState([]);
+
+    function addToCart(product) {
+        setCart((prev) => [...prev, product]);
     }
-];
 
-export default products;
+    function removeFromCart(id) {
+
+        setCart((prev) => {
+
+            const index = prev.findIndex(
+                (item) => item.id === id
+            );
+
+            if (index === -1) return prev;
+
+            const updatedCart = [...prev];
+
+            updatedCart.splice(index, 1);
+
+            return updatedCart;
+        });
+    }
+
+    return (
+        <CartContext.Provider
+            value={{
+                cart,
+                addToCart,
+                removeFromCart
+            }}
+        >
+            {children}
+        </CartContext.Provider>
+    );
+}
+
+export function useCart() {
+    return useContext(CartContext);
+}
