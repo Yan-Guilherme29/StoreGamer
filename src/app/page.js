@@ -1,40 +1,36 @@
 import Link from "next/link";
-import styles from "./page.module.css";
+import styles from ".page.module.css";
 
 export default function Home() {
-  return (
-    <main className={styles.home}>
+  return (<main className= {
+      styles.home
+    }
 
-      <section className={styles.hero}>
-        <h1>Equipamentos para elevar seu nível</h1>
+    > <section className= {
+      styles.hero
+    }
 
-        <p>
-          Os melhores periféricos gamers para quem
-          busca desempenho e qualidade.
-        </p>
+    > <h1>Equipamentos para elevar seu nível</h1> <p> Os melhores periféricos gamers para quem busca desempenho e qualidade. </p> <Link href="/produtos"
 
-        <Link
-          href="/produtos"
-          className={styles.button}
-        >
-          Ver Produtos
-        </Link>
-      </section>
+    className= {
+      styles.button
+    }
 
-      <section className={styles.benefits}>
-        <div className={styles.card}>
-           Alta Performance
-        </div>
+    > Ver Produtos </Link> </section> <section className= {
+      styles.benefits
+    }
 
-        <div className={styles.card}>
-          Entrega Rápida
-        </div>
+    > <div className= {
+      styles.card
+    }
 
-        <div className={styles.card}>
-          Compra Segura
-        </div>
-      </section>
+    > Alta Performance </div> <div className= {
+      styles.card
+    }
 
-    </main>
-  );
+    > Entrega Rápida </div> <div className= {
+      styles.card
+    }
+
+    > Compra Segura </div> </section> </main>);
 }

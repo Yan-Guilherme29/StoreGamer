@@ -70,6 +70,7 @@
     transform: translateY(0);
   }
 }
+
 .continueButton {
 
   display: inline-block;
@@ -101,6 +102,7 @@
 
   transform: translateY(-2px);
 }
+
 .cartButton {
 
   display: inline-block;

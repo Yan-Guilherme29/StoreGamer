@@ -76,7 +76,7 @@ export default function ProdutoDetalhe() {
                     href="/carrinho"
                     className={styles.cartButton}
                 >
-                     Ir para o Carrinho
+                    Ir para o Carrinho
                 </Link>
 
             </div>

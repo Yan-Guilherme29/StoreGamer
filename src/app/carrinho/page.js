@@ -99,7 +99,7 @@ export default function Carrinho() {
 
                 <p className={styles.successMessage}>
 
-                     Compra realizada com sucesso!
+                    Compra realizada com sucesso!
 
                     <br />
 
